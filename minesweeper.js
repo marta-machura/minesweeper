@@ -69,15 +69,26 @@ function startGame () {
   lib.initBoard()
 }
 
+document.onclick = checkForWin
+
+window.oncontextmenu = checkForWin
 // Define this function to look for a win condition:
 //
 // 1. Are all of the cells that are NOT mines visible?
 // 2. Are all of the mines marked?
 function checkForWin () {
-
+  let isWinner = true
+  for (let i = 0; i < board.cells.length; i++) {
+    let cell = board.cells[i]
+    if (cell.isMine && !cell.isMarked) {
+      isWinner = false;
+    }
+  }
+  if(isWinner){
   // You can use this function call to declare a winner (once you've
   // detected that they've won, that is!)
-  //   lib.displayMessage('You win!')
+    lib.displayMessage('You win!')
+  }
 }
 
 // Define this function to count the number of mines around the cell
