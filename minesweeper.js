@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', startGame)
 
 // Define your `board` object here!
 var board = {}
-board.cells = [
+/*board.cells = [
   {
     row: 0, 
     col: 0, 
@@ -57,7 +57,26 @@ board.cells = [
     isMine: false,
     hidden: true
   } 
-]
+]*/
+
+function boardCreator(board) {
+  board.cells = [];
+  newCell = 0;
+  
+  for (var i = 0; i < 4; i++) {
+    for (var j = 0; j < 4; j++) {
+      board.cells[newCell] = {};
+      board.cells[newCell].row = i;
+      board.cells[newCell].col = j;
+      board.cells[newCell].isMine = (Math.random() >= 0.75);
+      board.cells[newCell].hidden = true;
+      newCell++
+      
+      }
+    }
+  }
+  
+  boardCreator(board);
 
 function startGame () {
 
