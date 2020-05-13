@@ -63,8 +63,8 @@ function boardCreator(board) {
   board.cells = [];
   newCell = 0;
   
-  for (var i = 0; i < 4; i++) {
-    for (var j = 0; j < 4; j++) {
+  for (var i = 0; i < 5; i++) {
+    for (var j = 0; j < 5; j++) {
       board.cells[newCell] = {};
       board.cells[newCell].row = i;
       board.cells[newCell].col = j;
@@ -91,6 +91,16 @@ function startGame () {
 document.onclick = checkForWin
 
 window.oncontextmenu = checkForWin
+
+
+function resetGame(){
+  window.location.reload();
+} 
+
+
+
+
+//document.getElementById('myButton').onclick = boardCreator(board)
 // Define this function to look for a win condition:
 //
 // 1. Are all of the cells that are NOT mines visible?
@@ -136,3 +146,10 @@ function countSurroundingMines (cell) {
   console.log(count)
 }
 
+//let reset = init()
+//let myButton = document.getElementById('myButton');
+//myButton.onclick = init()
+//function init() {
+  //boardCreator(board);
+  
+//}
